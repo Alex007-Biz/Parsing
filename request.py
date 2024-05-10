@@ -1,13 +1,11 @@
 import pprint
 import requests
 
-response = requests.get('https://otdelkino.ru/')
-print(response.status_code)
-if response.ok:
-    print("Запрос успешно выполнен")
-else:
-    print("Ошибка")
-# print(response.content)
+params = {
+    'q': 'python'
+}
+response = requests.get('https://api.github.com/search/repositories', params=params)
+responce_json = response.json()
+pprint.pprint(responce_json)
 
-response_json = response.json()
-pprint.pprint(response_json)
+
